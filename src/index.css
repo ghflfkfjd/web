@@ -1,0 +1,113 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --font-serif: 'Noto Serif KR', Georgia, serif;
+    --font-sans: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-mono: 'JetBrains Mono', 'IBM Plex Mono', Menlo, Consolas, monospace;
+  }
+}
+
+.font-serif-kr {
+  font-family: var(--font-serif);
+}
+
+.font-sans-kr {
+  font-family: var(--font-sans);
+}
+
+.font-mono-kr {
+  font-family: var(--font-mono);
+}
+
+/* Paper Grain Texture Overlay */
+.paper-grain {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.04'/%3E%3C/svg%3E");
+}
+
+.dark .paper-grain {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.035'/%3E%3C/svg%3E");
+}
+
+/* 0.4s Fast Snap Mode Scanline Transition */
+@keyframes editorialScanline {
+  0% {
+    clip-path: inset(0 0 100% 0);
+    opacity: 0.8;
+  }
+  50% {
+    clip-path: inset(0 0 0 0);
+    opacity: 1;
+  }
+  100% {
+    clip-path: inset(100% 0 0 0);
+    opacity: 0;
+  }
+}
+
+.animate-scanline {
+  animation: editorialScanline 0.4s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+/* Paper Flip Clip-path snap */
+@keyframes paperFlip {
+  0% {
+    opacity: 0.4;
+    transform: translateY(2px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-paper-flip {
+  animation: paperFlip 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Subtle Ear Tip Blushing Indicator */
+@keyframes subtleEarGlow {
+  0% {
+    opacity: 0.2;
+    transform: scale(0.9);
+  }
+  50% {
+    opacity: 0.95;
+    transform: scale(1.1);
+  }
+  100% {
+    opacity: 0.7;
+    transform: scale(1);
+  }
+}
+
+.animate-ear-glow {
+  animation: subtleEarGlow 0.9s ease-in-out infinite alternate;
+}
+
+/* 1px Hairline rules */
+.hairline-b {
+  border-bottom: 1px solid currentColor;
+}
+
+.hairline-t {
+  border-top: 1px solid currentColor;
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Editorial Tape Visual */
+.tape-strip {
+  background: rgba(230, 225, 215, 0.65);
+  backdrop-filter: blur(2px);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.dark .tape-strip {
+  background: rgba(60, 62, 74, 0.7);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}

@@ -1,0 +1,6 @@
+{
+  "name": "우리 반 천사가 욕하는 걸 봐버렸다 - 한세아 캐릭터챗",
+  "description": "전교생이 천사라고 믿는 고2 한세아의 세 가지 얼굴(가면·본색·알맹이)을 체험하는 모바일 우선 인터랙티브 캐릭터 쇼케이스.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
